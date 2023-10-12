@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "fb4dfed6-4583-4574-ab88-4293cc9ca8ef",
+		"name": "Bedrock Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4188236"
+	},
+	"item": [
+		{
+			"name": "FoundationModels",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"endpoint\", \"https://bedrock.us-east-1.amazonaws.com\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{endpoint}}/foundation-models",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"foundation-models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InvokeModelText",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"endpoint\", \"https://bedrock.us-east-1.amazonaws.com\");\r",
+							"pm.environment.set(\"modelId\", \"anthropic.claude-instant-v1\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"\\n\\nHuman:explain what is Teleperformance Colombia.Breakdown your response in five facts using a professional tone\\n\\nAssistant:\",\r\n    \"max_tokens_to_sample\": 300,\r\n    \"temperature\": 0.1,\r\n    \"top_p\": 0.9\r\n}"
+				},
+				"url": {
+					"raw": "{{endpoint}}/model/{{modelId}}/invoke",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"model",
+						"{{modelId}}",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InvokeModelTextToImage",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"endpoint\", \"https://bedrock.us-east-1.amazonaws.com\");\r",
+							"pm.environment.set(\"modelId\", \"stability.stable-diffusion-xl\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"\\n\\nHuman:explain what is Teleperformance Colombia.Breakdown your response in five facts using a professional tone\\n\\nAssistant:\",\r\n    \"max_tokens_to_sample\": 300,\r\n    \"temperature\": 0.1,\r\n    \"top_p\": 0.9\r\n}"
+				},
+				"url": {
+					"raw": "{{endpoint}}/model/{{modelId}}/invoke",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"model",
+						"{{modelId}}",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "awsv4",
+		"awsv4": [
+			{
+				"key": "addAuthDataToQuery",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "service",
+				"value": "bedrock",
+				"type": "string"
+			},
+			{
+				"key": "secretKey",
+				"value": "<Your SecretKey>",
+				"type": "string"
+			},
+			{
+				"key": "accessKey",
+				"value": "<Your AccessKey>",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
