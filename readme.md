@@ -1,4 +1,4 @@
-# 🤖 💪 🚀 Amazon Bedrock API Demo with Postman 🤖 💪 🚀 
+# 🤖 Amazon Bedrock API Demo with Postman 🚀 
 
 Welcome to this demo where interact with the Amazon Bedrock API using Postman.
 
